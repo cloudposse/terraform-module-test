@@ -1,0 +1,12 @@
+name: Main Branch
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  validate:
+    uses: cloudposse/github-actions-workflows-terraform-module/.github/workflows/main-branch.yml@shared_workflows
