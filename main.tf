@@ -4,10 +4,11 @@ resource "random_integer" "example" {
   min = 1
   max = 50000
   keepers = {
-    example = var.example
+  example = var.example
   }
 }
 
 locals {
+  test = "test"
   example = format("%v %v", var.example, join("", random_integer.example[*].result))
 }
