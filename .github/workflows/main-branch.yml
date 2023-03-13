@@ -1,12 +1,7 @@
 name: Main Branch
 on:
-  pull_request:
-    types: [closed]
-    pull_request_target:
-      types: [closed]
-      branches:
-        - main
-      merged: true
+  push:
+    branches: [ main ]
 
 permissions:
   contents: write
