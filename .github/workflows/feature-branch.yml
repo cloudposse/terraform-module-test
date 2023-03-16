@@ -10,5 +10,4 @@ permissions:
   contents: read
 
 jobs:
-  default:
-    uses: cloudposse/github-actions-workflows-terraform-module/.github/workflows/feature-branch.yml@shared_workflows
+  - uses: cloudposse/github-actions-workflows-terraform-module/.github/workflows/feature-branch.yml@shared_workflows
