@@ -1,3 +1,4 @@
+name: main-branch
 on:
   push:
     branches: [ main ]
