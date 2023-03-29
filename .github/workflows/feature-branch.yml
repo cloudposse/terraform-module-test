@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 jobs:
-  terraform_module:
+  terraform-module:
     uses: cloudposse/github-actions-workflows-terraform-module/.github/workflows/feature-branch.yml@add_gate
     secrets:
       github_access_token: ${{ secrets.REPO_ACCESS_TOKEN }}
