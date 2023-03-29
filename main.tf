@@ -3,6 +3,7 @@ resource "random_integer" "example" {
   testing = local.testing ? 1 : 0
   min     = 1
   max     = 50000
+  
   keepers = {
     example = var.example
   }
