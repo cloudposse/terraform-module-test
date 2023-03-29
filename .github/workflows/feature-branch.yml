@@ -1,4 +1,3 @@
-name: Feature Branch
 on:
   pull_request:
     branches: [ main ]
