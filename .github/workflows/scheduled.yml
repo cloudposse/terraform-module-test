@@ -1,6 +1,6 @@
 name: scheduled
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # Keeping this for testing: gh workflow run scheduled
   schedule:
     - cron: "30 0 * * *"
 
