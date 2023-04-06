@@ -2,8 +2,7 @@ name: scheduled
 on:
   workflow_dispatch:  # Keeping this for testing: gh workflow run scheduled
   schedule:
-    - cron: "30 0 * * *"
-
+    - cron: "0 3 * * *"
 
 permissions:
   pull-requests: write
