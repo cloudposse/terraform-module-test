@@ -106,12 +106,6 @@ variable "namespace" {
   description = "ID element. Usually an abbreviation of your organization name, e.g. 'eg' or 'cp', to help ensure generated IDs are globally unique"
 }
 
-variable "tenant" {
-  type        = string
-  default     = null
-  description = "ID element _(Rarely used, not included by default)_. A customer identifier, indicating who this instance of a resource is for"
-}
-
 variable "environment" {
   type        = string
   default     = null
