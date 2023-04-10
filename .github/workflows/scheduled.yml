@@ -11,4 +11,4 @@ permissions:
 
 jobs:
   scheduled:
-    uses: cloudposse/github-actions-workflows-terraform-module/.github/workflows/scheduled.yml@main
+    uses: cloudposse/github-actions-workflows-terraform-module/.github/workflows/scheduled.yml@sched_workflows
