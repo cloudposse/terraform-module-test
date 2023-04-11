@@ -1,6 +1,6 @@
 name: scheduled
 on:
-  workflow_dispatch: {}  # Testing: gh workflow run scheduled
+  workflow_dispatch: {}  # Allows manually trigger this workflow
   schedule:
     - cron: "0 3 * * *"
 
@@ -11,6 +11,6 @@ permissions:
 
 jobs:
   scheduled:
-    uses: cloudposse/github-actions-workflows-terraform-module/.github/workflows/scheduled.yml@sched_workflows
+    uses: cloudposse/github-actions-workflows-terraform-module/.github/workflows/scheduled.yml@main
     secrets:
       github_access_token: ${{ secrets.REPO_ACCESS_TOKEN }}
