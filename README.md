@@ -31,7 +31,6 @@
 This is an example project to provide all the scaffolding for a typical well-built Cloud Posse
 Terraform module for AWS resources. It's a template repository you can
 use when creating new repositories. This is not a useful module by itself.
-Testing
 
 ---
 
