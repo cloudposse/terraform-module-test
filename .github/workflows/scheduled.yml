@@ -1,6 +1,6 @@
 name: scheduled
 on:
-  workflow_dispatch: {}  # Testing: gh workflow run scheduled
+  workflow_dispatch: {}  # Let manually trigger this workflow
   schedule:
     - cron: "0 3 * * *"
 
