@@ -1,0 +1,13 @@
+name: feature-branch-chatops
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  pull-requests: write
+  id-token: write
+  contents: read
+
+jobs:
+  terraform-module:
+    uses: cloudposse/github-actions-workflows-terraform-module/.github/workflows/feature-branch-chatops.yml@chatops
