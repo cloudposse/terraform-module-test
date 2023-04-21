@@ -4,6 +4,11 @@ on:
     branches:
       - main
       - release/**
+    paths-ignore:
+      - '.github/**'
+      - 'docs/**'
+      - 'examples/**'
+      - 'test/**'
 
 permissions:
   contents: write
