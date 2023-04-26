@@ -1,12 +1,8 @@
 name: release-published
-#on:
-#  release:
-#    types:
-#      - published
 on:
-  workflow_run:
-    workflows: [release-branch]
-    types: [completed]
+  release:
+    types:
+      - published
 
 permissions:
   contents: write
