@@ -9,6 +9,6 @@ resource "random_integer" "example" {
 }
 
 locals {
-  testing = false
+  testing = true
   example = format("%v  %v", var.example, join("", random_integer.example[*].result))
 }
