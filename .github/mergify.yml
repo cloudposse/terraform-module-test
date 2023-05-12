@@ -3,14 +3,12 @@
 pull_request_rules:
 - name: "approve automated PRs that have passed checks"
   conditions:
-  - "author~=^(cloudpossebot|renovate\\[bot\\])$"
-  - "base=master"
+  - "base=main"
   - "-closed"
   - "head~=^(auto-update|renovate)/.*"
-  - "check-success=test/bats"
-  - "check-success=test/readme"
-  - "check-success=test/terratest"
-  - "check-success=validate-codeowners"
+  - "check-success=terraform-module / ci"
+  - "and: *common_checks"
+  - "sender-permission>=write"
   actions:
     review:
       type: "APPROVE"
@@ -19,17 +17,15 @@ pull_request_rules:
 
 - name: "merge automated PRs when approved and tests pass"
   conditions:
-  - "author~=^(cloudpossebot|renovate\\[bot\\])$"
-  - "base=master"
+  - "base=main"
   - "-closed"
   - "head~=^(auto-update|renovate)/.*"
-  - "check-success=test/bats"
-  - "check-success=test/readme"
-  - "check-success=test/terratest"
-  - "check-success=validate-codeowners"
+  - "check-success=terraform-module / ci"
+  - "and: *common_checks"
   - "#approved-reviews-by>=1"
   - "#changes-requested-reviews-by=0"
   - "#commented-reviews-by=0"
+  - "sender-permission>=write"
   actions:
     merge:
       method: "squash"
@@ -46,18 +42,18 @@ pull_request_rules:
   - "-closed"
   actions:
     comment:
-      message: "This pull request is now in conflict. Could you fix it @{{author}}? 🙏"
+      message: "This pull request has conflicts, please resolve."
 
 - name: "remove outdated reviews"
   conditions:
-  - "base=master"
+  - "base=main"
   actions:
     dismiss_reviews:
       changes_requested: true
       approved: true
       message: "This Pull Request has been updated, so we're dismissing all reviews."
 
-- name: "close Pull Requests without files changed"
+- name: "close PRs with no files changed"
   conditions:
     - "#files=0"
   actions:
