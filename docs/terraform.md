@@ -55,4 +55,5 @@
 | <a name="output_id"></a> [id](#output\_id) | ID of the created example |
 | <a name="output_random"></a> [random](#output\_random) | Stable random number for this example |
 | <a name="output_test"></a> [test](#output\_test) | Example output |
+| <a name="output_test2"></a> [test2](#output\_test2) | Example output |
 <!-- markdownlint-restore -->
