@@ -12,6 +12,11 @@ output "test" {
   description = "Example output"
   value       = module.this.enabled ? local.example : null
 }
+  
+output "test2" {
+  description = "Example output"
+  value       = module.this.enabled ? local.example : null
+}
 
 output "random" {
   description = "Stable random number for this example"
