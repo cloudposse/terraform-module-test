@@ -1,3 +1,11 @@
+
+
+<!-- markdownlint-disable -->
+<a href="https://cpco.io/homepage"><img src=".github/banner.png?raw=true" alt="Project Banner"/></a><br/>
+    
+
+<!-- markdownlint-restore -->
+
 <!--
 
 
@@ -35,16 +43,6 @@ This is an test project.
 > <img src="https://github.com/cloudposse/atmos/blob/master/docs/demo.gif?raw=true"/><br/>
 > <i>Example of running <a href="https://atmos.tools"><code>atmos</code></a> to manage infrastructure from our <a href="https://atmos.tools/quick-start/">Quick Start</a> tutorial.</i>
 > </detalis>
-
-
-
-
-
-
-
-
-
-
 
 
 
