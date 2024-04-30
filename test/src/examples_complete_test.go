@@ -79,7 +79,7 @@ func TestExamplesComplete(t *testing.T) {
   // Then we run change the example and run it a third time and
   // verify that the random number changed
   newExample := "Goodbye"
-  terraformOptions.Vars["example_input_override"] = newExample
+  terraformOptions.Vars["example"] = newExample
   terraform.Apply(t, terraformOptions)
 
   example3 := terraform.Output(t, terraformOptions, "example")
