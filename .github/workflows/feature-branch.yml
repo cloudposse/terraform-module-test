@@ -1,7 +1,7 @@
 ---
 name: feature-branch
 on:
-  pull_request:
+  pull_request_target:
     branches:
       - main
       - release/**
@@ -16,4 +16,3 @@ permissions:
 jobs:
   terraform-module:
     uses: cloudposse/github-actions-workflows-terraform-module/.github/workflows/feature-branch.yml@main
-    secrets: inherit
