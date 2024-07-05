@@ -1,4 +1,4 @@
 variable "example" {
-  type        = string
-  default     = ""
+  type    = string
+  default = ""
 }
