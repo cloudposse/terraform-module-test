@@ -1,4 +1,5 @@
 variable "example" {
-  type    = string
-  default = ""
+  type        = string
+  default     = ""
+  description = "Example input"
 }
