@@ -22,3 +22,4 @@ environments:
       custom_branches:
         - main
         - release/**
+
