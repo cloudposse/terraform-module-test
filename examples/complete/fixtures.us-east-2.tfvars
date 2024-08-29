@@ -8,5 +8,5 @@ stage = "test"
 
 name = "example"
 
-example_input = "Hello, world!"
+example_input = "Hello 2, world!"
 
