@@ -14,5 +14,4 @@ jobs:
   test:
     uses: cloudposse/.github/.github/workflows/shared-terraform-chatops.yml@terratest-refactoring
     if: ${{ github.event.issue.pull_request }}
-    secrets:
-      github_access_token: ${{ secrets.REPO_ACCESS_TOKEN }}
+    secrets: inherit
