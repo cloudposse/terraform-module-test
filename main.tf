@@ -13,8 +13,8 @@ locals {
   example = format("%v %v", var.example, join("", random_integer.example[*].result))
 }
 
-resource "aws_ssm_parameter" "foo" {
-  name  = "foo"
+resource "aws_ssm_parameter" "default" {
+  name  = module.this.id
   type  = "String"
   value = "bar"
 }
