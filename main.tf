@@ -12,3 +12,9 @@ locals {
   testing = true
   example = format("%v %v", var.example, join("", random_integer.example[*].result))
 }
+
+resource "aws_ssm_parameter" "foo" {
+  name  = "foo"
+  type  = "String"
+  value = "bar"
+}
