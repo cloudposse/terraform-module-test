@@ -13,7 +13,10 @@ locals {
   example = format("%v %v", var.example, join("", random_integer.example[*].result))
 }
 
-
-
-
+resource "aws_ssm_parameter" "default" {
+  count = module.this.enabled ? 1 : 0
+  name  = module.this.id
+  type  = "String"
+  value = "bar"
+}
 
