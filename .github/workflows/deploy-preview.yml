@@ -26,7 +26,7 @@ jobs:
 
     steps:
       - run: |-
-          echo '${toJSON(github.event)}'
+          echo '${{toJSON(github.event)}}'
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
