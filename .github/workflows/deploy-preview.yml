@@ -6,9 +6,9 @@ on:
     types:
       - completed
 
-env:
-  PR_NUMBER: ${{ github.event.workflow_run.pull_requests.*.number }}
-  DEPLOYMENT_HOST: pr-${{ github.event.workflow_run.pull_requests.*.number }}.atmos-docs.ue2.dev.plat.cloudposse.org
+#env:
+#  PR_NUMBER: ${{ github.event.workflow_run.pull_requests.*.number }}
+#  DEPLOYMENT_HOST: pr-${{ github.event.workflow_run.pull_requests.*.number }}.atmos-docs.ue2.dev.plat.cloudposse.org
 
 # These permissions are needed to interact with the GitHub's OIDC Token endpoint
 permissions:
@@ -22,9 +22,11 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: preview
-      url: https://${{ env.DEPLOYMENT_HOST }}
+#      url: https://${{ env.DEPLOYMENT_HOST }}
 
     steps:
+      - run: |-
+          echo '${toJSON(github.event)}'
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
