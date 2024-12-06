@@ -37,7 +37,7 @@ jobs:
 
       - name: Install Dependencies and Build Website
         run: |
-          mkdir website/build
+          mkdir -p website/build
           touch website/build/content
           echo "Test Content" > website/build/content
 
