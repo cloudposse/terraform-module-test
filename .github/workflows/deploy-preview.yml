@@ -7,8 +7,8 @@ on:
       - completed
 
 env:
-  PR_NUMBER: ${{ github.event.workflow_run.pull_requests.0.number }}
-  DEPLOYMENT_HOST: pr-${{ github.event.workflow_run.pull_requests.0.number }}.atmos-docs.ue2.dev.plat.cloudposse.org
+  PR_NUMBER: ${{ github.event.workflow_run.pull_requests.*.number }}
+  DEPLOYMENT_HOST: pr-${{ github.event.workflow_run.pull_requests.*.number }}.atmos-docs.ue2.dev.plat.cloudposse.org
 
 # These permissions are needed to interact with the GitHub's OIDC Token endpoint
 permissions:
