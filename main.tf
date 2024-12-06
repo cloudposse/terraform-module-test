@@ -21,10 +21,3 @@ resource "aws_ssm_parameter" "default" {
 }
 
 
-
-
-
-
-
-
-
