@@ -26,6 +26,11 @@ jobs:
 #      url: https://${{ env.DEPLOYMENT_HOST }}
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
       - uses: actions/create-github-app-token@v1
         id: github-app
         with:
