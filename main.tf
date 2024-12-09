@@ -19,5 +19,3 @@ resource "aws_ssm_parameter" "default" {
   type  = "String"
   value = "bar"
 }
-
-
