@@ -1,0 +1,37 @@
+name: "Delete Website Preview"
+
+on:
+  workflow_dispatch:
+
+  pull_request:
+    types:
+      - closed
+
+# These permissions are needed to interact with the GitHub's OIDC Token endpoint
+permissions:
+  id-token: write
+  contents: read
+  deployments: write
+
+jobs:
+  website-destroy-preview:
+    # Do not deploy the website to the preview environment if the PR has the label 'website-no-deploy'
+    if: ${{ !contains(github.event.*.labels.*.name, 'website-no-deploy') }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      # see https://dev.to/bobheadxi/branch-previews-with-google-app-engine-and-github-actions-3pco
+      - name: extract branch name
+        id: get_branch
+        shell: bash
+        env:
+          PR_HEAD: ${{ github.head_ref }}
+        run: echo "##[set-output name=branch;]$(echo ${PR_HEAD#refs/heads/} | tr / -)"
+
+      - name: mark environment as deactivated
+        uses: bobheadxi/deployments@648679e8e4915b27893bd7dbc35cb504dc915bc8 # v1
+        with:
+          step: deactivate-env
+          env: ${{ steps.get_branch.outputs.branch }}
+          desc: Environment was pruned
