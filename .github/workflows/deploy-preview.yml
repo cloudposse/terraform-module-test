@@ -6,15 +6,16 @@ on:
     types:
       - completed
 
-#env:
-#  PR_NUMBER: ${{ github.event.workflow_run.pull_requests.*.number }}
-#  DEPLOYMENT_HOST: pr-${{ github.event.workflow_run.pull_requests.*.number }}.atmos-docs.ue2.dev.plat.cloudposse.org
+env:
+  PR_NUMBER: ${{ github.event.workflow_run.pull_requests[0].number }}
+  DEPLOYMENT_HOST: pr-${{ github.event.workflow_run.pull_requests[0].number }}.atmos-docs.ue2.dev.plat.cloudposse.org
 
 # These permissions are needed to interact with the GitHub's OIDC Token endpoint
 permissions:
   id-token: write
   contents: read
   actions: read
+  deployments: write
 
 jobs:
   website-deploy-preview:
@@ -26,11 +27,19 @@ jobs:
 #      url: https://${{ env.DEPLOYMENT_HOST }}
 
     steps:
+      - name: Start deployment
+        uses: bobheadxi/deployments@648679e8e4915b27893bd7dbc35cb504dc915bc8
+        id: deployment
+        with:
+          step: start
+          env: preview
+          ref: ${{ github.event.workflow_run.pull_requests[0].number }}
+
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          
+
       - uses: actions/create-github-app-token@v1
         id: github-app
         with:
@@ -38,7 +47,7 @@ jobs:
           private-key: ${{ secrets.BOT_GITHUB_APP_PRIVATE_KEY }}
 
       - run: |-
-          echo '${{toJSON(github.event.workflow_run.pull_requests[0].number)}}'
+          echo '${{toJSON(github.event.workflow_run)}}'
 
       - name: Download artifacts
         uses: actions/download-artifact@v4
@@ -52,3 +61,14 @@ jobs:
         run: |
           cd website/build
           ls -l ./
+
+      - name: Update deployment status
+        uses: bobheadxi/deployments@v1
+        if: always()
+        with:
+          step: finish
+          status: ${{ job.status }}
+          env: ${{ steps.deployment.outputs.env }}
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+          env_url: https://${{ env.DEPLOYMENT_HOST }}
+          auto_inactive: true
