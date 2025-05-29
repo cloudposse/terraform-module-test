@@ -6,36 +6,50 @@ license: "APACHE2"
 
 # Copyrights
 copyrights:
-- name: "Cloud Posse, LLC"
-  url: "https://cloudposse.com"
-  year: "2021"
+  - name: "Cloud Posse, LLC"
+    url: "https://cloudposse.com"
+    year: "2021"
 
 # Canonical GitHub repo
 github_repo: cloudposse/terraform-test-module
 
 description: |-
   This is an test project 33.  
-  
+
   > [!IMPORTANT]
   > This repository is for experiementation
 
 
 references:
-- name: "Cloud Posse Documentation"
-  url: "https://docs.cloudposse.com"
-  description: "The Cloud Posse Developer Hub (documentation)"
-- name: "Terraform Standard Module Structure"
-  description: "HashiCorp's standard module structure is a file and directory layout we recommend for reusable modules distributed in separate repositories."
-  url: "https://www.terraform.io/docs/language/modules/develop/structure.html"
-- name: "Terraform Module Requirements"
-  description: "HashiCorp's guidance on all the requirements for publishing a module. Meeting the requirements for publishing a module is extremely easy."
-  url: "https://www.terraform.io/docs/registry/modules/publish.html#requirements"
-- name: "Terraform Version Pinning"
-  description: "The required_version setting can be used to constrain which versions of the Terraform CLI can be used with your configuration"
-  url: "https://www.terraform.io/docs/language/settings/index.html#specifying-a-required-terraform-version"
+  - name: "Cloud Posse Documentation"
+    url: "https://docs.cloudposse.com"
+    description: "The Cloud Posse Developer Hub (documentation)"
+  - name: "Terraform Standard Module Structure"
+    description: "HashiCorp's standard module structure is a file and directory layout we recommend for reusable modules distributed in separate repositories."
+    url: "https://www.terraform.io/docs/language/modules/develop/structure.html"
+  - name: "Terraform Module Requirements"
+    description: "HashiCorp's guidance on all the requirements for publishing a module. Meeting the requirements for publishing a module is extremely easy."
+    url: "https://www.terraform.io/docs/registry/modules/publish.html#requirements"
+  - name: "Terraform Version Pinning"
+    description: "The required_version setting can be used to constrain which versions of the Terraform CLI can be used with your configuration"
+    url: "https://www.terraform.io/docs/language/settings/index.html#specifying-a-required-terraform-version"
 
+
+# List any related terraform modules that this module may be used with or that this module depends on.
 related:
-- name: "Example App"
-  url: "https://github.com/cloudposse/example-app"
-  description: "Example application for CI/CD demonstrations of Codefresh"
+  - name: "Example App"
+    url: "https://github.com/cloudposse/example-app"
+    description: "Example application for CI/CD demonstrations of Codefresh"
 
+badges:
+  - name: Latest Release
+    image: https://img.shields.io/github/release/cloudposse/terraform-test-module.svg?style=for-the-badge
+    url: https://github.com/cloudposse/terraform-test-module/releases/latest
+  - name: Last Updated
+    image: https://img.shields.io/github/last-commit/cloudposse/terraform-test-module.svg?style=for-the-badge
+    url: https://github.com/cloudposse/terraform-test-module/commits
+  - name: Slack Community
+    image: https://slack.cloudposse.com/for-the-badge.svg
+    url: https://cloudposse.com/slack
+contributors: []
+include: []
